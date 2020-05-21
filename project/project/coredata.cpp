@@ -1,4 +1,6 @@
 #include "coredata.hpp"
+#define _SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING
+#include <experimental/filesystem>
 
 ofstream items;
 string secret = "PBG892FXX982ABC*";
@@ -25,45 +27,43 @@ void coredata::LoadItem(int clothingType, string name, int itemID, int breakhits
 	else {
 		if (breakhits == 0)
 		{
-			if (clothingType == 0)
+			switch (clothingType) 
 			{
-				items << to_string(itemID) + "|" + name + "|8|NoSeed|Clothing|2F2F2F|191919|0|752|Hat" << endl;
+				case 0:
+					items << to_string(itemID) + "|" + name + "|8|NoSeed|Clothing|2F2F2F|191919|0|752|Hat" << endl;
+					break;
+				case 1:
+					items << to_string(itemID) + "|" + name + "|55|NoSeed|Clothing|050505|1D1D1D|0|168025|Shirt" << endl;
+					break;
+				case 2:
+					items << to_string(itemID) + "|" + name + "|51|NoSeed|Clothing|E8E8E8|5A5A5A|0|134181|Pants" << endl;
+					break;
+				case 3:
+					items << to_string(itemID) + "|" + name + "|11|NoSeed|Clothing|FF2727|FFE32B|0|1661|Feet" << endl;
+					break;
+				case 4:
+					items << to_string(itemID) + "|" + name + "|15|NoSeed|Clothing|F7F7F7|FFFFFF|0|3825|Face" << endl;
+					break;
+				case 5:
+					items << to_string(itemID) + "|" + name + "|10|NoSeed|Clothing|565656|FFFEE9|0|1300|Hand" << endl;
+					break;
+				case 6:
+					items << to_string(itemID) + "|" + name + "|999|NoSeed, Dropless, Untradable|Clothing|38B9E0|9FE6FB|0|3600|Back" << endl;
+					break;
+				case 7:
+					items << to_string(itemID) + "|" + name + "|74|NoSeed|Clothing|FFC34B|ED71FF|0|407444|Hair" << endl;
+					break;
+				case 8:
+					items << to_string(itemID) + "|" + name + "|999|NoSeed, Dropless|Clothing|FFFE0F|EAAA00|0|3600|Chest" << endl;
+					break;
+				case 9:
+					// ances?
+					break;
+				default:
+					cout << "[BUILDER] FAILED TO LOAD ITEM WITH ID: " << to_string(itemID) << endl;
+					break;
 			}
-			else if (clothingType == 1)
-			{
-				items << to_string(itemID) + "|" + name + "|55|NoSeed|Clothing|050505|1D1D1D|0|168025|Shirt" << endl;
-			}
-			else if (clothingType == 2)
-			{
-				items << to_string(itemID) + "|" + name + "|51|NoSeed|Clothing|E8E8E8|5A5A5A|0|134181|Pants" << endl;
-			}
-			else if (clothingType == 3)
-			{
-				items << to_string(itemID) + "|" + name + "|11|NoSeed|Clothing|FF2727|FFE32B|0|1661|Feet" << endl;
-			}
-			else if (clothingType == 4)
-			{
-				items << to_string(itemID) + "|" + name + "|15|NoSeed|Clothing|F7F7F7|FFFFFF|0|3825|Face" << endl;
-			}
-			else if (clothingType == 5)
-			{
-				items << to_string(itemID) + "|" + name + "|10|NoSeed|Clothing|565656|FFFEE9|0|1300|Hand" << endl;
-			}
-			else if (clothingType == 6)
-			{
-				items << to_string(itemID) + "|" + name + "|999|NoSeed, Dropless, Untradable|Clothing|38B9E0|9FE6FB|0|3600|Back" << endl;
-			}
-			else if (clothingType == 7)
-			{
-				items << to_string(itemID) + "|" + name + "|74|NoSeed|Clothing|FFC34B|ED71FF|0|407444|Hair" << endl;
-			}
-			else if (clothingType == 8)
-			{
-				items << to_string(itemID) + "|" + name + "|999|NoSeed, Dropless|Clothing|FFFE0F|EAAA00|0|3600|Chest" << endl;
-			}
-			else {
-				cout << "[BUILDER] FAILED TO LOAD ITEM WITH ID: " << to_string(itemID) << endl;
-			}
+			
 		}
 		else {
 			if (name != "Fist" && name != "Wrench")
