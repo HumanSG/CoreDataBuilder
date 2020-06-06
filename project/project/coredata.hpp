@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
-#include <filesystem>
+#define _SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING
+#include <experimental/filesystem>
 #include <string>
 #include <fstream>
 #include <iomanip>
