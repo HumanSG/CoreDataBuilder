@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="core">
+      <UniqueIdentifier>{b75b3dcd-ba13-4fef-a8b0-f896fff27563}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\misc">
+      <UniqueIdentifier>{f262c36a-259b-4c3c-a4c5-0930cddb7a27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\items">
+      <UniqueIdentifier>{ac3f593a-018c-4607-abe5-5555928d9506}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="items.cpp">
+      <Filter>core\items</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>core\misc</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="enums.h">
+      <Filter>core\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="items.h">
+      <Filter>core\items</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.h">
+      <Filter>core\misc</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
